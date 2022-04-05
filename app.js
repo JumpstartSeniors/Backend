@@ -10,7 +10,7 @@ const notesRouter = require("./routers/notes");
 app.get('/', (req, res) => {
   res
     .status(200)
-    .send('Hello server is running')
+    .send('Hello server is runningh')
     .end();
 });
 
