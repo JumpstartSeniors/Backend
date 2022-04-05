@@ -7,7 +7,12 @@ const app = express();
 const coursesRouter = require("./routers/courses");
 const notesRouter = require("./routers/notes");
 
-
+app.get('/', (req, res) => {
+  res
+    .status(200)
+    .send('Hello server is running')
+    .end();
+});
 
 mongoose.connect(
   "mongodb+srv://ayo:replayz1@cluster0.fupxl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -29,8 +34,6 @@ app.use(helmet());
 app.use("/courses", coursesRouter);
 app.use("/notes", notesRouter);
 
-const PORT = process.env.PORT || 9000;
-
-app.listen(PORT, () => {
-  console.log('listening on port ${PORT}');
+app.listen(9000, () => {
+  console.log("listening on port 9000");
 });
