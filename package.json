@@ -2,10 +2,10 @@
     "name": "jumpstartsenior",
     "version": "1.0.0",
     "description": "",
-    "main": "app.js",
-    
+    "main": "index.js",
+
     "scripts": {
-        "start": "nodemon app.js"
+        "start": "node index.js"
     },
     "author": "Mohammed Al-Rasheed",
     "license": "ISC",
