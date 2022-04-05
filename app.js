@@ -34,6 +34,8 @@ app.use(helmet());
 app.use("/courses", coursesRouter);
 app.use("/notes", notesRouter);
 
-app.listen(9000, () => {
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
   console.log("listening on port 9000");
 });
