@@ -6,6 +6,7 @@ const app = express();
 
 const coursesRouter = require("./routers/courses");
 const notesRouter = require("./routers/notes");
+const statsRouter = require("./routers/stats");
 
 app.get('/', (req, res) => {
   res
@@ -46,9 +47,9 @@ app.use((req, res, next) => {
 
 app.use("/courses", coursesRouter);
 app.use("/notes", notesRouter);
+app.use("/stats", statsRouter);
 
 const PORT = process.env.PORT || 8080;
-
 app.listen(PORT, () => {
   console.log("listening on port 8080");
 });
