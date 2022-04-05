@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const helmet = require('helmet')
 const url = 'mongodb://localhost/JumpstartSeniors'
 
 const app = express()
@@ -15,6 +16,8 @@ con.on('open', () => {
 })
 
 app.use(express.json())
+// add helmet to protect the app from some common vulnerabilities
+app.use(helmet())
 
 app.use('/courses', coursesRouter)
 app.use('/notes', notesRouter)

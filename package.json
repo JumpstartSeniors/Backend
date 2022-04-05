@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
-
     "scripts": {
         "start": "nodemon app.js"
     },
@@ -11,6 +10,7 @@
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1",
+        "helmet": "^5.0.2",
         "mongodb": "^3.5.7",
         "mongoose": "^5.9.13"
     },
