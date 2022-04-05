@@ -10,7 +10,7 @@ const notesRouter = require("./routers/notes");
 
 
 mongoose.connect(
-  "mongodb+srv://ayo:<REDACTED>@cluster0.fupxl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "mongodb+srv://ayo:replayz1@cluster0.fupxl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
