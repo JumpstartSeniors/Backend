@@ -21,6 +21,7 @@ router.get('/:courseid', async(req, res) => {
         res.send('GET by courseCode Request Error: ' + err)
     }
 })
+
 // post request to push new notes
 router.post('/', async(req, res) => {
     const note = new Notes({
@@ -28,7 +29,8 @@ router.post('/', async(req, res) => {
         title: req.body.title,
         description: req.body.description,
         source: req.body.source,
-        datePosted: req.body.datePosted
+        datePosted: req.body.datePosted,
+        likes: 0
     })
     try {
         // check if the source is a link
@@ -48,6 +50,7 @@ router.post('/', async(req, res) => {
         res.send('POST Request Error: ' + err)
     }
 })
+
 // delete by course ID
 router.delete('/:id', async(req, res) => {
     try {
@@ -58,6 +61,16 @@ router.delete('/:id', async(req, res) => {
     }
 })
 
+router.post('/like/:id', async(req, res) => {
+    try {
+        const note = await Notes.findById(req.params.id)
+        note.likes += 1
+        const updatedNote = await note.save()
+        res.json(updatedNote)
+    } catch (err) {
+        res.send('POST Request Error: ' + err)
+    }
+})
 
 
 module.exports = router

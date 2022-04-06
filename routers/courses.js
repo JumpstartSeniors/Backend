@@ -20,7 +20,7 @@ router.post('/', async(req, res) => {
         courseCode: req.body.courseCode,
         courseName: req.body.title,
         courseDescription: req.body.description,
-        courseImage: req.body.image
+        courseImage: req.body.image,
     })
     try {
         const savedCourse = await course.save()
@@ -29,7 +29,6 @@ router.post('/', async(req, res) => {
         res.send('POST Request Error: ' + err)
     }
 })
-
 
 
 

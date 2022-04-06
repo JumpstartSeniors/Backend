@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 
 
 const notesSchema = new mongoose.Schema({
-
     courseCode: {
         type: String,
         required: true
@@ -23,6 +22,11 @@ const notesSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    likes: {
+        type: Number,
+        required: true,
+        default: 0
+    }
 })
 
 module.exports = mongoose.model('Notes', notesSchema)
