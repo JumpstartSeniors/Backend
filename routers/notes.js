@@ -16,6 +16,8 @@ router.get('/', async(req, res) => {
 router.get('/:courseid', async(req, res) => {
     try {
         const notes = await Notes.find({ courseCode: req.params.courseid })
+        
+        notes.sort((a, b) => (a.likes > b.likes) ? -1 : 1)
         res.json(notes)
     } catch (err) {
         res.send('GET by courseCode Request Error: ' + err)
