@@ -24,6 +24,23 @@ router.get('/:courseid', async(req, res) => {
     }
 })
 
+// get courses by courseCode
+router.get('/:courseid/:search', async(req, res) => {
+    try {
+        const notes = await Notes.find({ courseCode: req.params.courseid })
+        // search for the title and description
+        const search = req.params.search
+        const filteredNotes = notes.filter(note => {
+            const regex = new RegExp(search, 'gi')
+            return note.title.match(regex) || note.description.match(regex)
+        })
+        filteredNotes.sort((a, b) => (a.likes > b.likes) ? -1 : 1)
+        res.json(filteredNotes)
+    } catch (err) {
+        res.send('GET by courseCode Request Error: ' + err)
+    }
+})
+
 // post request to push new notes
 router.post('/', async(req, res) => {
     const note = new Notes({
