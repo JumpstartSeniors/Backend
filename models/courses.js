@@ -19,6 +19,11 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    notes: {
+        type: Number,
+        required: true,
+        default: 0
+    },
 })
 
 module.exports = mongoose.model('Courses',courseSchema)
